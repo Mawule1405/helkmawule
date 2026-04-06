@@ -116,14 +116,14 @@
           "name": "NEBI (Next Billing)",
           "description": "Cross-platform billing application enabling the management of quotes, invoices, and business profiles with PDF document generation.",
           "objective": "To automate and professionalize invoicing for entrepreneurs and SMEs.",
-          "indicator": "Personnel",
+          "indicator": "Personal",
           "technologies": "Flutter & SQLite"
         },
         "projet_clockin": {
           "name": "CLOCKIN (Time Tracking & Attendance)",
           "description": "Multi-platform attendance and secure clock-in management application, integrating facial recognition, Beacon tag scanning, and geolocation for real-time employee tracking.",
           "objective": "To automate work-time tracking and secure corporate access through a multi-factor approach (Biometrics, Proximity, Network).",
-          "indicator": "Personnel",
+          "indicator": "Personal",
           "technologies": "Flutter & Supabase"
         }
       }
