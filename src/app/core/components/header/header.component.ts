@@ -34,7 +34,7 @@ export class HeaderComponent implements OnInit, OnDestroy, AfterViewInit {
   @Input() items: Item[]=[]
   @Input() isDarkTheme = false;
 
-  @Input()logo : string = "/assets/images/logo-taurus.png";
+  @Input()logo : string = "assets/images/logo-taurus.png";
   @Input() appName = "TAURUS"
 
   @Output() onNavigate = new EventEmitter<string>();
