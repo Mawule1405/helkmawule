@@ -1,0 +1,122 @@
+<!-- Section Projets -->
+<section id="projectsId" class="projects" aria-labelledby="projects-heading">
+  <div class="container">
+    <!-- En-tête de section -->
+    <div class="section-header">
+      <h2 id="projects-heading" class="section-title">
+        {{ PROJECT_TITLE|translate }}
+        <span class="title-underline" aria-hidden="true"></span>
+      </h2>
+      <p class="section-subtitle">
+        {{PROJECT_SUBTITLE | translate}}
+      </p>
+    </div>
+
+    <!-- Grille de projets -->
+    <div class="projects-grid" role="list" aria-label="Liste de mes projets">
+
+      <!-- Boucle sur chaque projet -->
+      @for (project of subProjects; track project.id) {
+        <article
+          [id]="project.id"
+          class="project-card"
+          [attr.data-indicator]="project.indicator"
+          [style.--card-color]="project.color"
+          (click)="scrollToSection(project.id)"
+          (keydown.enter)="scrollToSection(project.id)"
+          (keydown.space)="scrollToSection(project.id); $event.preventDefault()"
+          tabindex="0"
+          role="listitem"
+          [attr.aria-labelledby]="'project-title-' + project.id"
+          [attr.aria-describedby]="'project-desc-' + project.id"
+        >
+          <!-- Conteneur de l'image du projet -->
+          <figure class="project-image-wrapper">
+            <img
+              [src]="project.photoUrl"
+              [alt]="'Capture d\'écran du projet ' + project.name"
+              class="project-image"
+              loading="lazy"
+              width="400"
+              height="250"
+            />
+          </figure>
+
+          <div
+            class="indicator-tag"
+            [ngClass]="{
+              'indicator-professional': project.indicator === 'Professionnel',
+              'indicator-personal': project.indicator === 'Personnel',
+              'indicator-academic': project.indicator === 'Académique'
+            }"
+            aria-label="Type de projet: {{ project.indicator }}"
+          >
+            {{ project.indicator|translate }}
+          </div>
+
+          <!-- Contenu textuel du projet -->
+          <div class="card-content">
+            <h3 [id]="'project-title-' + project.id" class="card-title">
+              {{ project.name|translate }}
+            </h3>
+
+            <!-- Objectif du projet -->
+            <div class="card-meta">
+              <strong class="meta-label">Objectif :</strong>
+              <p class="meta-text">{{ project.objective|translate }}</p>
+            </div>
+
+            <!-- Description du projet -->
+            <div class="card-description">
+              <strong class="meta-label">Description :</strong>
+              <p [id]="'project-desc-' + project.id" class="description-text">
+                {{ project.description |translate }}
+              </p>
+            </div>
+
+            <div class="badges-container">
+              @for (badge of (project.technologies|translate | multiBadgePipe); track $index) {
+                <span class="badge">
+                    {{ badge }}
+              </span>
+              }
+            </div>
+
+
+          </div>
+
+          <!-- Bouton d'action -->
+          <!--<button
+            class="read-more-btn"
+            type="button"
+            [attr.aria-label]="'Voir les détails du projet ' + project.name"
+          >
+            <span>Voir les détails</span>
+            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+          </button>-->
+        </article>
+      }
+    </div>
+
+    <!-- Section Call to Action -->
+    <div class="cta-wrapper text-center">
+      @if (showAllProjects) {
+        <button
+          class="btn btn-primary btn-lg"
+          (click)="showAllProjectsAction()"
+        >
+          <i class="fas fa-rocket" aria-hidden="true"></i>
+          {{btnShowAllText|translate}}
+        </button>
+      } @else {
+        <button
+          class="btn btn-primary btn-lg"
+          (click)="showAllProjectsAction()"
+        >
+          <i class="fas fa-rocket" aria-hidden="true"></i>
+          {{btnShowPartText|translate}}
+        </button>
+      }
+    </div>
+  </div>
+</section>

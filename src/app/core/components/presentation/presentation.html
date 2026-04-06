@@ -1,0 +1,71 @@
+<!-- presentation.component.html -->
+<section id="homeId" class="hero">
+  <div class="hero-container">
+
+    <!-- Image de profil -->
+    <div class="hero-image">
+      <div class="profile-circle">
+        <img
+          src="https://avatars.githubusercontent.com/u/128102543?s=400&u=cc0793325aefc8ba8bef47b67c1655feef941d32&v=4"
+          alt="Photo de profil - HELOU Komlan Mawulé, Ingénieur en Conception Informatique"
+          class="profile-img"
+        />
+
+        <!-- Overlay avec info -->
+        <div class="profile-overlay">
+          <div class="profile-info">
+            <i class="fas fa-map-marker-alt"></i>
+            <span>{{data.ADDRESS | translate}}</span>
+          </div>
+          <div class="profile-info">
+            <i class="fas fa-cogs"></i>
+            <span>{{data.JOB_FOCUS | translate}}</span>
+          </div>
+          <div class="profile-info">
+            <i class="fas fa-rocket"></i>
+            <span>{{data.AVAILABILITY|translate}}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Boutons -->
+      <div class="hero-buttons">
+        <a href="#projects" class="btn btn-primary">
+          <i class="fas fa-code"></i>
+          {{data.SHOW_PROJECTS|translate}}
+        </a>
+        <a href="https://github.com/Mawule1405" class="btn btn-primary" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i>
+          GitHub
+        </a>
+        <a href="#contact" class="btn btn-contact" (click)="onNavigate('contact')">
+          <i class="fas fa-envelope"></i>
+          {{data.SHOW_CONTACT | translate}}
+        </a>
+      </div>
+    </div>
+
+    <!-- Contenu Texte -->
+    <div class="hero-content">
+      <div class="hero-badge">
+        <i class="fas fa-graduation-cap"></i>
+        <span>{{ data.PROFESSION | translate }}</span>
+      </div>
+
+      <h1 class="hero-title">
+        {{ data.GREETING|translate }}
+        <span class="highlight name-animation">{{ animatedName }}</span>
+      </h1>
+
+      <p class="hero-subtitle">
+        {{data.PROFILE | translate}}
+      </p>
+
+      <p class="hero-description typing-animation">
+        {{ animatedDescription }}
+        <span class="cursor">|</span>
+      </p>
+
+    </div>
+  </div>
+</section>

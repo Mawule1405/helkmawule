@@ -1,0 +1,455 @@
+/* presentation.component.css - Version compacte avec overlay */
+
+.hero {
+  padding: 30px 15px 40px;
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  background: var(--color-primary) ;
+  color: white;
+  overflow: hidden;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+}
+
+/* Éléments décoratifs simplifiés */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  right: -5%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 15s ease-in-out infinite;
+  z-index: 1;
+}
+
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -8%;
+  left: -8%;
+  width: 250px;
+  height: 250px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
+  border-radius: 50%;
+  animation: float 18s ease-in-out infinite reverse;
+  z-index: 1;
+}
+
+/* Conteneur principal */
+.hero-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+  z-index: 2;
+  padding: 0 10px;
+}
+
+/* Image de profil compacte avec overlay */
+.hero-image {
+  flex: 1 1 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  animation: slideInFromRight 1s ease-out both;
+}
+
+.profile-circle {
+  position: relative;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.2);
+  border: 6px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.4s ease;
+}
+
+.profile-circle:hover {
+  transform: scale(1.05);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border-color: rgba(255, 215, 0, 0.4);
+}
+
+.profile-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+  filter: grayscale(0.1) contrast(1.1);
+}
+
+.profile-circle:hover .profile-img {
+  transform: scale(1.1);
+  filter: grayscale(0) contrast(1.2);
+}
+
+/* OVERLAY RESTAURÉ */
+.profile-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.7));
+  color: white;
+  padding: 20px;
+  text-align: center;
+  backdrop-filter: blur(15px);
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-circle:hover .profile-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.profile-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 0.9rem;
+  padding: 10px 14px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.profile-info:hover {
+  background: rgba(255, 215, 0, 0.15);
+  transform: translateY(-2px);
+  border-color: rgba(255, 215, 0, 0.4);
+  box-shadow: 0 5px 15px rgba(255, 215, 0, 0.2);
+}
+
+.profile-info i {
+  color: var(--gold-color);
+  font-size: 0.9rem;
+}
+
+/* Boutons compacts */
+.hero-buttons {
+  display: flex;
+  gap: 15px;
+  flex-wrap: wrap;
+  margin-top: 20px;
+  animation: fadeInUp 0.8s ease-out 1.2s both;
+  justify-content: center;
+}
+
+.btn {
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  transition: all 0.3s ease;
+  font-size: 0.95rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  border: 2px solid transparent;
+}
+
+.btn-primary {
+  background: var(--gold-color);
+  color: var(--color-primary);
+  border-radius: 25px;
+}
+
+.btn-primary:hover {
+  background: #ffd700;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 215, 0, 0.3);
+  color: var(--color-primary-dark);
+}
+
+.btn-contact {
+  background: rgba(255, 255, 255, 0.9);
+  color: var(--color-primary);
+  border-radius: 25px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.btn-contact:hover {
+  background: white;
+  transform: translateY(-3px);
+  box-shadow: 0 12px 25px rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 215, 0, 0.5);
+}
+
+/* Contenu texte compact */
+.hero-content {
+  flex: 1 1 450px;
+  max-width: 100%;
+  animation: slideInFromLeft 1s ease-out both;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 10px 18px;
+  border-radius: 50px;
+  font-size: 1.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  animation: fadeInUp 0.6s ease-out 0.2s both;
+}
+
+.hero-badge i {
+  color: var(--gold-color);
+  font-size: 0.9rem;
+}
+
+.hero-title {
+  font-size: clamp(2rem, 5vw, 3rem);
+  font-weight: 700;
+  line-height: 1.1;
+  margin-bottom: 15px;
+  animation: fadeInUp 0.6s ease-out 0.4s both;
+}
+
+.name-animation {
+  display: inline-block;
+  color: var(--gold-color);
+  background: linear-gradient(135deg, #ffd700, #ffed4e);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: fadeIn 1s ease-in-out 0.6s both;
+}
+
+.hero-subtitle {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 20px;
+  font-weight: 500;
+  animation: fadeInUp 0.6s ease-out 0.6s both;
+}
+
+.hero-description {
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.6;
+  margin-bottom: 25px;
+  font-size: 1rem;
+  animation: fadeInUp 0.6s ease-out 0.8s both;
+}
+
+/* ============ ANIMATIONS SIMPLIFIÉES ============ */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ============ RESPONSIVE COMPACT ============ */
+@media (max-width: 1200px) {
+  .hero-container {
+    max-width: 1100px;
+    gap: 40px;
+  }
+}
+
+@media (max-width: 992px) {
+  .hero-container {
+    text-align: center;
+    gap: 30px;
+    justify-content: center;
+  }
+
+  .hero-content {
+    order: 2;
+    margin-top: 30px;
+    max-width: 600px;
+  }
+
+  .hero-image {
+    order: 1;
+  }
+
+  .hero-buttons {
+    justify-content: center;
+  }
+
+  .profile-circle {
+    width: 220px;
+    height: 220px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 60px 15px 40px;
+    border-radius: 3rem 0 3rem 0;
+    min-height: auto;
+  }
+
+  .profile-circle {
+    width: 200px;
+    height: 200px;
+  }
+
+  .btn {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+    padding: 12px 20px;
+  }
+
+  .hero-buttons {
+    gap: 12px;
+  }
+
+  .profile-overlay {
+    padding: 15px;
+    gap: 10px;
+  }
+
+  .profile-info {
+    font-size: 0.85rem;
+    padding: 8px 12px;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero {
+    padding: 40px 12px 30px;
+    border-radius: 2rem 0 2rem 0;
+  }
+
+  .profile-circle {
+    width: 180px;
+    height: 180px;
+  }
+
+  .hero-badge {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+  }
+
+  .hero-title {
+    font-size: 1.8rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-description {
+    font-size: 0.95rem;
+  }
+
+  .btn {
+    padding: 12px 20px;
+    font-size: 0.9rem;
+  }
+
+  .profile-overlay {
+    padding: 12px;
+    gap: 8px;
+  }
+
+  .profile-info {
+    font-size: 0.8rem;
+    padding: 6px 10px;
+  }
+}
+
+/* Support reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero::before,
+  .hero::after,
+  .profile-circle,
+  .btn,
+  .hero-badge,
+  .profile-info,
+  .hero-title,
+  .hero-subtitle,
+  .hero-description,
+  .hero-buttons,
+  .hero-image,
+  .hero-content,
+  .name-animation {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .profile-overlay {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+

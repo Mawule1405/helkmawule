@@ -1,0 +1,63 @@
+<section id="aboutId" class="home-about">
+  <div class="container">
+
+    <div class="section-header">
+      <h2 id="flip-heading" class="section-title">
+        {{ FLIP_TITLE|translate }}
+        <span class="title-underline" aria-hidden="true"></span>
+      </h2>
+      <p class="section-subtitle">
+        {{FLIP_SUBTITLE | translate}}
+      </p>
+    </div>
+
+    <!-- Contrôles de défilement -->
+    <div class="scroll-controls">
+      <button (click)="scrollLeft()" class="scroll-btn prev-btn" [disabled]="!canScrollLeft()" aria-label="Défilement précédent">
+        <i class="fas fa-chevron-left"></i>
+      </button>
+
+      <!-- Wrapper de défilement horizontal -->
+      <div class="cards-scroll-wrapper" #scrollContainer (scroll)="onScroll()">
+        <div class="cards-grid">
+          @for (item of flipItems; track $index) {
+            <div class="flip-card" [class.flipped]="item.flipped">
+              <div class="flip-card-inner">
+                <!-- Face avant -->
+                <div class="flip-card-front">
+                  <div class="timeline-icon">
+                    <i [class]="item.icon"></i>
+                  </div>
+                  <h3>{{ item.title|translate }}</h3>
+                  <p class="timeline-period">{{ item.period|translate }}</p>
+                  <button class="btn btn-flip btn-front" (click)="toggleFlip($index)">
+                    <i class="fas fa-eye"></i> {{FLIP_ACTION|translate}}
+                  </button>
+                </div>
+
+                <!-- Face arrière -->
+                <div class="flip-card-back">
+                  <div class="back-content">
+                    <h3>{{ item.title|translate }}</h3>
+                    <div class="description">
+                      <p>{{ item.fullDescription|translate }}</p>
+                      <button class="btn btn-flip back-btn" (click)="toggleFlip($index)">
+                        <i class="fas fa-arrow-left"></i> {{ 'FLIP.return' | translate }}
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          }
+        </div>
+      </div>
+
+      <button (click)="scrollRight()" class="scroll-btn next-btn" [disabled]="!canScrollRight()" aria-label="Défilement suivant">
+        <i class="fas fa-chevron-right"></i>
+      </button>
+    </div>
+
+
+  </div>
+</section>

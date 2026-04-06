@@ -1,0 +1,78 @@
+<!-- home-skills.component.html -->
+<section id="skillsId" class="skills">
+  <div class="container">
+    <h2 class="section-title">{{'SKILLS.title'|translate}}</h2>
+    <div class="skills-intro">
+      <p>{{'SKILLS.subtitle'|translate}}</p>
+    </div>
+
+    <!-- Grille des cercles -->
+    <div class="skills-circles">
+      @for (skill of lessSkills; track $index) {
+        <div class="skill-circle-container">
+
+          <!-- Bouton suspendu avec effet de corde -->
+          @if (!skill.expanded) {
+            <div class="suspension-system">
+              <button class="btn-suspended btn-see-more" (click)="expandSkill(skill)">
+                <i class="fas fa-eye"></i> {{'SKILLS.showMore'|translate}}
+              </button>
+              <div class="rope"></div>
+            </div>
+          }
+
+          @if (skill.expanded) {
+            <div class="suspension-system">
+              <button class="btn-suspended btn-hide" (click)="collapseSkill(skill)">
+                <i class="fas fa-eye-slash"></i> {{'SKILLS.showLess'|translate}}
+              </button>
+              <div class="rope"></div>
+            </div>
+          }
+
+          <!-- Cercle de compétence -->
+          <div class="skill-circle" [class.expanded]="skill.expanded">
+            <!-- Fond du cercle -->
+            <div class="circle-bg"></div>
+
+            <!-- Point d'attache de la corde -->
+            <div class="rope-attachment"></div>
+
+            <!-- Contenu central -->
+            <div class="circle-content">
+              <!-- Avant expansion -->
+              @if (!skill.expanded) {
+                <i [class]="skill.icon" class="skill-icon"></i>
+                <span class="skill-name">{{ skill.name|translate }}</span>
+              }
+
+              <!-- Après expansion -->
+              @if (skill.expanded) {
+                <div class="description-wrapper">
+                  <p class="skill-description">{{ skill.description|translate}}</p>
+                </div>
+              }
+            </div>
+          </div>
+        </div>
+      }
+    </div>
+
+    <!-- Bouton global en bas -->
+    @if (showAllSkills) {
+      <div class="skills-cta">
+        <button class="btn btn-primary" (click)="onDisplaySkills()">
+          <i class="fas fa-rocket"></i>
+          {{'SKILLS.showFewerBtn'|translate}}
+        </button>
+      </div>
+    } @else {
+      <div class="skills-cta">
+        <button class="btn btn-primary" (click)="onDisplaySkills()">
+          <i class="fas fa-rocket"></i>
+          {{'SKILLS.showAllBtn'|translate}}
+        </button>
+      </div>
+    }
+  </div>
+</section>

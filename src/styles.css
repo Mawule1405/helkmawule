@@ -1,0 +1,76 @@
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+/* src/styles/main.css */
+@import './assets/styles/themes/light-theme.css';    /* Always load light as base */
+@import './assets/styles/themes/dark-theme.css';     /* Dark mode overrides when class is present */
+
+/* Base Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+* {
+  scrollbar-width: thin; /* "auto", "thin", ou "none" */
+  scrollbar-color: var(--color-primary) transparent; /* thumb color + track color */
+}
+
+/* Pour Chrome, Edge, Safari (WebKit) */
+*::-webkit-scrollbar {
+  width: 8px; /* fine verticale */
+  height: 8px; /* fine horizontale (rarement visible) */
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent; /* fond de la track (peut être légèrement gris si tu veux) */
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary); /* couleur du "thumb" (bouton de scroll) */
+  border-radius: 10px; /* coins arrondis */
+  border: 2px solid transparent; /* évite que le thumb touche les bords */
+  background-clip: content-box;
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background-color: var(--color-primary-dark); /* un peu plus foncé au survol */
+}
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  font-family: var(--font-family), serif;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
+  line-height: 1.6;
+
+}
+
+/* src/styles.css */
+:root {
+  /* Green Theme */
+  --color-primary: #2e8b57;           /* SeaGreen */
+  --color-primary-light: #3cb371;
+  --color-primary-dark: #228b22;
+
+  --color-background: #f8f9fa;
+  --color-text: #212529;
+  --color-border: #dee2e6;
+  --color-surface: #ffffff;           /* Logo & Controls background */
+
+  --radius-top-left: 12px;
+  --radius-bottom-right: 12px;
+
+  --gold-color: rgba(255, 215, 0, 0.9);
+
+  --transition: 0.3s ease;
+}
+
+html.dark-mode {
+  --color-background: #121212;
+  --color-text: #f8f9fa;
+  --color-border: #495057;
+  --color-surface: #1e1e1e;
+  --color-primary: #3cb371;
+}
+
+

@@ -1,0 +1,508 @@
+/* home-skills.component.css - Version avec boutons en haut et cercles animés */
+
+.skills {
+  padding:0;
+  background: transparent;
+  color: #212529;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Arrière-plan animé subtil */
+.skills::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, var(--gold-color) 0%, transparent 70%);
+  opacity: 0.08;
+  z-index: 1;
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+.skills::after {
+  content: '';
+  position: absolute;
+  bottom: -80px;
+  left: -80px;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, var(--color-primary) 0%, transparent 70%);
+  opacity: 0.06;
+  z-index: 1;
+  pointer-events: none;
+  animation: float 12s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.dark-mode .skills {
+  background: transparent;
+  color: #f8f9fa;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 50px 0;
+  position: relative;
+  z-index: 2;
+}
+
+/* === Titre de section animé === */
+.section-title {
+  font-size: 2.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  cursor: pointer;
+  padding: 0 20px;
+}
+
+.section-title:hover {
+  color: var(--gold-color);
+  transform: translateY(-5px) scale(1.05);
+  text-shadow:
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+.section-title::after {
+  content: '';
+  display: block;
+  width: 80px;
+  height: 4px;
+  background: linear-gradient(90deg, var(--color-primary), var(--gold-color));
+  margin: 15px auto;
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+
+.section-title:hover::after {
+  width: 120px;
+  background: var(--gold-color);
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.skills-intro {
+  margin: 0 auto 50px;
+  color: #666;
+  font-size: 1.2rem;
+  line-height: 1.6;
+  max-width: 600px;
+}
+
+.dark-mode .skills-intro {
+  color: white;
+}
+
+/* === Grille de cercles === */
+.skills-circles {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+  margin-bottom: 20px;
+  background:  var(--gold-color);
+  position: relative;
+  overflow: visible;
+  box-shadow:
+    0 15px 40px rgba(46, 139, 87, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(20px);
+  padding: 70px; /* Plus de padding en haut pour les boutons */
+  border: 1px solid rgba(46, 139, 87, 0.08);
+}
+
+.dark-mode .skills-circles {
+  background: linear-gradient(135deg,
+  rgba(46, 139, 87, 0.05) 0%,
+  rgba(46, 139, 87, 0.08) 50%,
+  rgba(46, 139, 87, 0.05) 100%);
+  border-color: rgba(46, 139, 87, 0.15);
+}
+
+/* === Conteneur de chaque cercle === */
+.skill-circle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  animation: fadeInUp 0.6s ease-out both;
+  position: relative;
+  margin-top: 60px; /* Espace pour le système de suspension */
+}
+
+.skill-circle-container:nth-child(1) { animation-delay: 0.1s; }
+.skill-circle-container:nth-child(2) { animation-delay: 0.2s; }
+.skill-circle-container:nth-child(3) { animation-delay: 0.3s; }
+.skill-circle-container:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === SYSTÈME DE SUSPENSION (boutons en haut) === */
+.suspension-system {
+  position: absolute;
+  top: -70px; /* Positionné en haut */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* === CORDE EN OR ÉPAISSE AVEC z-INDEX INFÉRIEUR === */
+.rope {
+  width: 4px; /* Épaisseur augmentée */
+  height: 60px;
+  background: linear-gradient(to bottom,
+  var(--gold-color) 0%,
+  #ffed4e 20%,
+  var(--gold-color) 40%,
+  #ffed4e 60%,
+  var(--gold-color) 80%,
+  #ffed4e 100%);
+  margin-top: -5px;
+  position: relative;
+  animation: ropeSwing 4s ease-in-out infinite;
+  transform-origin: top center;
+  box-shadow:
+    0 0 8px rgba(255, 215, 0, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  border-radius: 2px;
+  z-index: 2; /* z-index inférieur au cercle */
+}
+
+@keyframes ropeSwing {
+  0%, 100% {
+    transform: rotate(-1deg);
+    height: 60px;
+  }
+  25% {
+    transform: rotate(0.5deg);
+    height: 58px;
+  }
+  50% {
+    transform: rotate(1.5deg);
+    height: 62px;
+  }
+  75% {
+    transform: rotate(-0.5deg);
+    height: 59px;
+  }
+}
+
+/* Point d'attache de la corde sur le cercle (EN HAUT) */
+.rope-attachment {
+  position: absolute;
+  top: -12px; /* Positionné en haut du cercle */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 10px;
+  height: 10px;
+  background: var(--gold-color);
+  border-radius: 50%;
+  z-index: 3; /* z-index entre la corde et le cercle */
+  box-shadow:
+    0 0 10px rgba(255, 215, 0, 0.8),
+    inset 0 1px 2px rgba(255, 255, 255, 0.5);
+}
+
+/* === BOUTONS FIXES EN HAUT === */
+.btn-suspended {
+  padding: 14px 28px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  font-weight: 700;
+  box-shadow:
+    0 8px 25px rgba(46, 139, 87, 0.3),
+    0 4px 15px rgba(0, 0, 0, 0.1),
+    0 0 20px rgba(46, 139, 87, 0.2);
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  position: relative;
+  z-index: 11; /* z-index élevé pour les boutons */
+  /* SUPPRIMÉ: l'animation de flottement */
+}
+
+.btn-suspended:hover {
+  transform: translateY(-3px) scale(1.05); /* Seul effet au hover */
+}
+
+.btn-see-more {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+}
+
+.btn-see-more:hover {
+  background: linear-gradient(135deg, var(--gold-color), #ffed4e);
+  color: var(--color-primary);
+  box-shadow:
+    0 15px 40px rgba(255, 215, 0, 0.4),
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+.btn-hide {
+  background: linear-gradient(135deg, var(--gold-color), #ffed4e);
+  color: var(--color-primary);
+}
+
+.btn-hide:hover {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  box-shadow:
+    0 15px 40px rgba(46, 139, 87, 0.4),
+    0 8px 25px rgba(0, 0, 0, 0.2),
+    0 0 30px rgba(46, 139, 87, 0.3);
+}
+
+/* === CERCLES ANIMÉS (qui bougent maintenant) === */
+.skill-circle {
+  min-width: 280px;
+  min-height: 400px;
+  padding: 16px;
+  position: relative;
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.1),
+    0 0 0 1px rgba(255, 255, 255, 0.5),
+    0 0 25px rgba(255, 215, 0, 0.4),
+    0 0 15px rgba(255, 215, 0, 0.2);
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  border: 8px solid white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  margin-top: 10px;
+  animation: circleFloat 4s ease-in-out infinite;
+  z-index: 4; /* z-index supérieur à la corde */
+}
+
+@keyframes circleFloat {
+  0% {
+    transform: rotate(0deg);
+    transform-origin: top center;
+  }
+  25% {
+    transform: rotate(15deg);
+    transform-origin: top center;
+  }
+  50% {
+    transform: rotate(0deg);
+    transform-origin: top center;
+  }
+  75% {
+    transform: rotate(-15deg);
+    transform-origin: top center;
+  }
+  100% {
+    transform: rotate(0deg);
+    transform-origin: top center;
+  }
+}
+
+.skill-circle:hover {
+  transform: translateY(-8px) scale(1.05) rotate(1deg);
+  animation-play-state: paused;
+  box-shadow:
+    0 20px 45px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(255, 255, 255, 0.8),
+    0 0 35px rgba(255, 215, 0, 0.6),
+    0 0 25px rgba(255, 215, 0, 0.3);
+}
+
+.skill-circle.expanded {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  box-shadow:
+    0 20px 45px rgba(46, 139, 87, 0.3),
+    0 0 30px rgba(255, 215, 0, 0.5),
+    0 0 20px rgba(255, 215, 0, 0.3);
+  animation: none;
+}
+
+.dark-mode .skill-circle {
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+  border-color: #2a2a2a;
+  box-shadow:
+    0 15px 35px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(255, 215, 0, 0.3);
+}
+
+/* === Contenu du cercle === */
+.circle-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 5; /* z-index le plus élevé dans le cercle */
+  width: 100%;
+  padding: 25px;
+  box-sizing: border-box;
+}
+
+.skill-icon {
+  font-size: 3.2rem;
+  color: var(--color-primary);
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+}
+
+.skill-circle.expanded .skill-icon {
+  color: white;
+}
+
+.skill-name {
+  display: block;
+  font-weight: 700;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  color: var(--color-primary);
+}
+
+.skill-circle.expanded .skill-name {
+  color: white;
+}
+
+.description-wrapper {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  max-width: 220px;
+  margin: 0 auto;
+}
+
+.skill-description {
+  margin: 0 0 20px;
+  font-size: 1.05rem;
+  color: white;
+}
+
+/* === Bouton global CTA === */
+.skills-cta {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  animation: fadeInUp 0.8s ease-out 0.8s both;
+}
+
+.btn-primary {
+  padding: 16px 32px;
+  border-radius: 50px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  text-decoration: none;
+  font-weight: 700;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  font-size: 1.1rem;
+  box-shadow:
+    0 8px 25px rgba(46, 139, 87, 0.25),
+    0 0 12px rgba(46, 139, 87, 0.15);
+  border: none;
+  cursor: pointer;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(135deg, var(--gold-color), #ffed4e);
+  color: var(--color-primary);
+  transform: translateY(-4px) scale(1.05);
+  box-shadow:
+    0 15px 35px rgba(46, 139, 87, 0.35),
+    0 0 20px rgba(46, 139, 87, 0.25);
+}
+
+/* ============ RESPONSIVE ============ */
+
+@media (max-width: 768px) {
+  .skills-circles {
+    gap: 90px;
+    padding: 90px 20px 40px;
+  }
+
+  .suspension-system {
+    top: -60px;
+  }
+
+  .rope {
+    height: 50px;
+    width: 3px;
+  }
+
+  .btn-suspended {
+    padding: 12px 24px;
+    font-size: 0.95rem;
+  }
+
+  .skill-circle {
+    width: 240px;
+    height: 240px;
+  }
+}
+
+@media (max-width: 576px) {
+  .skills-circles {
+    gap: 100px;
+  }
+
+  .skill-circle-container {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .suspension-system {
+    top: -55px;
+  }
+
+  .rope {
+    height: 45px;
+  }
+
+  .btn-suspended {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Support reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .skill-circle,
+  .rope {
+    animation: none;
+  }
+
+  .skills::before,
+  .skills::after {
+    animation: none;
+  }
+}

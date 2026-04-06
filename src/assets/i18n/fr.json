@@ -1,0 +1,254 @@
+{
+  "NAV": {
+    "HOME": "Accueil",
+    "ABOUT": "A propos",
+    "PROJECTS": "Projets",
+    "SKILLS": "Compétences",
+    "CONTACT": "Contacts",
+    "HISTORY": "Histoire",
+    "SWITCH_TO_EN": "Anglais",
+    "SWITCH_TO_FR": "Français"
+  },
+  "IDENTITY": {
+    "PROFESSION": "Ingénieur de Conception",
+    "GREETING": "Bonjour, Je suis",
+    "NAME": "HELOU Komlan Mawulé",
+    "PROFILE": "Développeur Full-stack, Architecte Logiciel, et Spécialisation en Intelligence Artificielle (IA)",
+    "DESCRIPTION": "Fort d'une double expertise en Ingénierie Informatique et en Enseignement des Mathématiques, je conçois et déploie des systèmes informatiques robustes et évolutifs. Actuellement en cours de spécialisation intensive en Intelligence Artificielle, j'applique déjà mes solides bases mathématiques pour développer de nouvelles solutions logicielles intégrant les fondations de l'IA, de l'analyse à l'implémentation.",
+    "ADDRESS": "Libreville, Gabon",
+    "JOB_FOCUS": "Digitalisation et Automatisation des Processus Métiers",
+    "AVAILABILITY": "Disponible pour Missions",
+    "SHOW_PROJECTS": "Voir les projets",
+    "SHOW_CONTACT": "Contactez-moi"
+  },
+
+  "PROJECTS": {
+    "title": "Mes projets informatiques",
+    "subtitle": "Découvrez une sélection de mes réalisations techniques, alliant innovation et expertise acquise durant mon parcours à l'IAI-Siège",
+    "showAll": "Découvrir tous les projets",
+    "showPart": "Voir moins de projets",
+    "DATA": {
+      "projet1": {
+        "name": "ArchiFile",
+        "description": "Conception et implémentation d'un système d'archivage électronique intelligent utilisant des algorithmes de recherche hybrides et une interface conversationnelle.",
+        "objective": "Redonner vie aux archives documentaires grâce à leur exploitation numérique",
+        "indicator": "Professionnel",
+        "technologies" : "Angular & Spring boot"
+      },
+      "projet2": {
+        "name": "SGLP",
+        "description": "Création d'un prototype fonctionnel d'une application web de gestion des libertés publiques",
+        "objective": "Digitalisation du processus de gestion des partis politiques et des associations",
+        "indicator": "Professionnel",
+        "technologies" : "Angular & Spring boot"
+      },
+      "projet3": {
+        "name": "SCHOOL-GEST",
+        "description": "Création d'un prototype fonctionnel d'une application web de gestion financière pour plusieurs établissements scolaires",
+        "objective": "Digitalisation du processus de gestion financière des établissements scolaires",
+        "indicator": "Professionnel",
+        "technologies" : "Angular & Spring boot"
+      },
+      "projet4": {
+        "name": "TAM",
+        "description": "Application de traitement des paiements de masse",
+        "objective": "Digitalisation du processus de paiements",
+        "indicator": "Professionnel",
+        "technologies" : "Angular & Spring boot"
+      },
+      "projet5": {
+        "name": "AccountManager",
+        "description": "Application de gestion des transactions pour l'acquisition de données et leur traitement par un ETL dans le cadre d'un cours d'informatique décisionnelle",
+        "objective": "Mettre en œuvre un processus ETL pour l'informatique décisionnelle",
+        "indicator": "Académique",
+        "technologies" : "Angular & Spring boot"
+      },
+      "projet6": {
+        "name": "IAIPromo",
+        "description": "Application pour mettre en contact les anciens et les nouveaux étudiants de l'Institut Africain d'Informatique",
+        "objective": "Créer un réseau d'échange entre étudiants et alumni",
+        "indicator": "Académique",
+        "technologies" : "Angular & Spring boot & Kotlin"
+      },
+      "projet7": {
+        "name": "Localisation",
+        "description": "API qui exploite la position des poteaux électriques du Gabon pour déterminer la distance entre une personne et ces derniers, et fournir le chemin le plus court vers cette position",
+        "objective": "Développer un système de géolocalisation basé sur les infrastructures électriques",
+        "indicator": "Académique",
+        "technologies" : "Python(FastApi) & PostGis"
+      },
+      "projet8": {
+        "name": "Ordi Vision",
+        "description": "Application de reconnaissance faciale pour identifier une personne dans le champ d'action d'une caméra",
+        "objective": "Implémenter un système de reconnaissance faciale en temps réel",
+        "indicator": "Académique",
+        "technologies" : "Python & Yolov8"
+      },
+      "projet9": {
+        "name": "Portfolio",
+        "description": "Construction de la première version de mon portfolio avec les éléments basiques du web",
+        "objective": "Construire un portfolio en ligne",
+        "indicator": "Personnel",
+        "technologies" : "HTML & CSS & Javascript"
+      },
+      "projet10": {
+        "name": "2ème Portfolio",
+        "description": "Reconstruction du portfolio avec Angular avec l'introduction d'un système bilingue (anglais, français)",
+        "objective": "Améliorer le portfolio avec des technologies modernes et une interface multilingue",
+        "indicator": "Personnel",
+        "technologies" : "Angular"
+      },
+      "projet11": {
+        "name": "ChatFile",
+        "description": "Construction d'une application web basée sur un système RAG pour simuler l'exploitation des documents",
+        "objective": "Apprentissage et mise en œuvre d'un système RAG",
+        "indicator": "Personnel",
+        "technologies" : "Angular & Spring boot (Spring AI)"
+      },
+      "projet12": {
+        "name": "PDFSplitter",
+        "description": "Application Windows permettant de séparer un document PDF en deux à la position souhaitée",
+        "objective": "Séparer des documents PDF de manière précise",
+        "indicator": "Personnel",
+        "technologies" : "Python (CustomTkinter)"
+      },
+      "projet_nebi": {
+        "name": "NEBI (Next Billing)",
+        "description": "Application de facturation multiplateforme permettant la gestion des devis, des factures et du profil entreprise avec génération de documents PDF.",
+        "objective": "Automatiser et professionnaliser la facturation pour les entrepreneurs et PME.",
+        "indicator": "Personnel",
+        "technologies" : "Flutter & Sqlite"
+      },
+      "projet_clockin": {
+        "name": "CLOCKIN (Time Tracking & Attendance)",
+        "description": "Application multiplateforme de gestion de présence et de pointage sécurisé, intégrant la reconnaissance faciale, le scan de balises Beacon et la géolocalisation pour le suivi en temps réel des collaborateurs.",
+        "objective": "Automatiser le suivi du temps de travail et sécuriser les accès en entreprise grâce à une approche multi-facteurs (Biométrie, Proximité, Réseau).",
+        "indicator": "Personnel",
+        "technologies": "Flutter & Supabase"
+      }
+    }
+  },
+  "FLIP": {
+    "title": "Mon parcours",
+    "subtitle": "L’évolution d’un ingénieur : des mathématiques fondamentales à l’intelligence artificielle appliquée",
+    "action": "Détail",
+    "return": "Retour",
+    "DATA": {
+      "flip1": {
+        "title": "Baccalauréat Série D",
+        "period": "2014",
+        "fullDescription": "Obtention du Baccalauréat Série D au Lycée Aného Ville au Togo. Cette formation scientifique m’a permis d’acquérir une base solide en mathématiques, physique et sciences naturelles, fondement de ma rigueur analytique actuelle."
+      },
+
+      "flip2": {
+        "title": "Licence en Mathématiques Fondamentales",
+        "period": "2014 - 2018",
+        "fullDescription": "Licence obtenue à l’Université de Lomé. Durant ce cycle, j’ai développé une forte capacité d’abstraction, de raisonnement logique et de résolution de problèmes complexes. Ces compétences m’ont servi de passerelle vers l’informatique, notamment l’algorithmique et la modélisation."
+      },
+
+      "flip3": {
+        "title": "Enseignant de Mathématiques",
+        "period": "2018 - 2022",
+        "fullDescription": "Enseignant au Complexe Scolaire Le Savoir à Lomé. Pendant quatre années, j’ai transmis la rigueur mathématique à des élèves du secondaire, conçu des méthodes pédagogiques adaptées et assuré la préparation aux examens. Cette expérience a renforcé mes compétences en communication et en pédagogie."
+      },
+
+      "flip4": {
+        "title": "Stage de Découverte en Développement",
+        "period": "2024",
+        "fullDescription": "Première immersion dans l’informatique appliquée chez TECHNO MEGA PARTNERS avec des travaux pratiques autour du développement web et de la programmation. Cette étape a confirmé ma volonté de me reconvertir pleinement vers l’ingénierie logicielle et l’IA."
+      },
+
+      "flip5": {
+        "title": "Stages Académiques & Professionnels",
+        "period": "2024 - 2025",
+        "fullDescription": "Réalisation de deux stages chez Techno Méga Partners à Libreville : un stage développement (CEVIMEC & TAM) et un stage ingénieur en IA (ARCHIFILE). J’ai participé à la conception d’applications métiers, au développement full-stack (Angular, Spring Boot, FastAPI) et à la création d’une solution d’archivage intelligent intégrant chatbot IA, indexation automatique et recherche hybride."
+      },
+
+      "flip6": {
+        "title": "Ingénieur de Conception en Informatique",
+        "period": "2022 - 2025",
+        "fullDescription": "Formation d’ingénieur au sein de l’Institut Africain d’Informatique (IAI) de Libreville. Spécialisation en conception d’applications, génie logiciel, data science et intelligence artificielle. Mes travaux incluent : RAG chatbot, systèmes microservices, computer vision, ETL décisionnel et applications Angular/Spring Boot."
+      }
+    }
+  },
+  "SKILLS": {
+    "title": "Mes compétences techniques",
+    "subtitle": "Compétences acquises lors de ma formation à l'Institut Africain d'Informatique et à travers mes projets personnels",
+    "showMore": "Voir plus",
+    "showLess": "Voir moins",
+    "showAllBtn": "Explorez toutes mes compétences",
+    "showFewerBtn": "Explorez moins de compétences",
+    "DATA": {
+      "skill1": {
+        "name": "Intelligence Artificielle",
+        "description": "IA générative (prompt engineering, fine-tuning, agents IA), NLP & MCP pour la création de chatbots intelligents et de systèmes de recherche conversationnelle, computer vision incluant la reconnaissance faciale et la détection d’objets (YOLO, OpenCV)."
+      },
+
+      "skill2": {
+        "name": "Développement Full-Stack",
+        "description": "Conception d’applications Web modernes avec Angular, Spring Boot, FastAPI et architectures microservices. Intégration d’APIs REST, sécurisation JWT, développement d'applications métier et solutions modulaires."
+      },
+
+      "skill3": {
+        "name": "Data Science & Analyse",
+        "description": "Manipulation et analyse de données avec Pandas, NumPy et R ; data visualization ; conception d’ETL décisionnels ; utilisation d’outils analytiques tels que Power BI et Excel."
+      },
+
+      "skill4": {
+        "name": "Bases de Données",
+        "description": "Modélisation et gestion de bases SQL : PostgreSQL, PostGIS pour le géospatial, MySQL. Conception de schémas relationnels et optimisation des requêtes."
+      },
+
+      "skill5": {
+        "name": "DevOps & Outils de Productivité",
+        "description": "Versioning avec Git, conteneurisation avec Docker, gestion de projet Agile."
+      },
+
+      "skill6": {
+        "name": "Ingénierie Logicielle & Architecture",
+        "description": "Méthodologies de conception logicielle, structuration de pipelines IA, intégration de RAG (Retrieval-Augmented Generation), microservices, conception de solutions scalables et maintenables."
+      },
+
+      "skill7": {
+        "name": "Pédagogie & Communication Technique",
+        "description": "3 ans d’expérience en enseignement des mathématiques et formation bureautique (Word, Excel, PowerPoint). Capacité à vulgariser des concepts techniques et à accompagner des apprenants."
+      },
+
+      "skill8": {
+        "name": "Rédaction & Présentation Professionnelle",
+        "description": "Rédaction académique et technique avec LaTeX, production de supports professionnels (Beamer), documentation claire et structurée pour projets et livrables."
+      }
+    }
+  },
+  "CONTACT": {
+    "title": "Restons en contact",
+    "subtitle": "N'hésitez pas à me contacter pour discuter de vos projets ou opportunités de collaboration.",
+    "localization": "Localisation",
+    "subLocalization": "Afrique centrale",
+    "email": "Email",
+    "subEmail": "Réponse sous 24h",
+    "telephone": "Téléphone",
+    "subTelephone": "Disponible sur WhatsApp",
+    "followMe": "Suivez-moi",
+    "message": {
+      "title": "Envoyez un message",
+      "name": "Nom complet",
+      "nameRequire": "Le nom est requis",
+      "emailRequire": "Un email valide est requis",
+      "subject": "Sujet",
+      "placeholderSubject": "Sujet de votre message",
+      "message": "Message",
+      "messageRequire": "Le message est requis",
+      "placeholderMessage": "Décrivez votre projet ou votre demande...",
+      "send": "Envoyer le message",
+      "sending": "Envoi en cours...",
+      "responseError": "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+      "responseSuccess": "Message envoyé avec succès ! Je vous répondrai dans les plus brefs délais."
+    },
+    "finally": "Tous droits réservés"
+  }
+
+
+
+
+}

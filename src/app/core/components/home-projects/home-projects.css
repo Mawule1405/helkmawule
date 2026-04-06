@@ -1,0 +1,544 @@
+/* === Section Projets - Version améliorée avec gold === */
+.projects {
+  padding: 50px 0;
+
+  color: #212529;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Arrière-plan doré stylisé comme dans skills */
+.projects::before {
+  content: '';
+  position: absolute;
+  top: -100px;
+  right: -100px;
+  width: 800px;
+  height: 800px;
+  background: radial-gradient(circle, var(--gold-color) 0%, transparent 70%);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.dark-mode .projects {
+  background: #121212;
+  color: #f0f0f0;
+}
+
+.container {
+  position: relative;
+  z-index: 2;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* === En-tête === */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.section-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 0 20px;
+}
+
+/* Animation au survol du titre */
+.section-title:hover {
+  color: var(--gold-color);
+  transform: translateY(-5px) scale(1.05);
+  text-shadow:
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.1) 50%, transparent 100%);
+  border-radius: 15px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.section-title:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.section-title .title-underline {
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: var(--color-primary);
+  margin: 12px auto;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title .title-underline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold-color), transparent);
+  transition: left 0.6s ease;
+}
+
+.section-title:hover .title-underline {
+  background: var(--gold-color);
+  width: 100px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.section-title:hover .title-underline::after {
+  left: 100%;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+
+.section-header:hover .section-subtitle {
+  color: var(--color-primary);
+  transform: translateY(3px);
+}
+
+.dark-mode .section-subtitle {
+  color: #bbb;
+}
+
+.dark-mode .section-header:hover .section-subtitle {
+  color: var(--gold-color);
+}
+
+/* === Grille de projets === */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 36px;
+  margin-bottom: 60px;
+  padding: 0;
+  list-style: none;
+}
+
+/* === Carte projet === */
+.project-card {
+  position: relative;
+  background: white;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 5px 15px var(--color-primary);
+  transition: all 0.4s cubic-bezier(0.17, 0.67, 0.12, 0.99);
+  cursor: pointer;
+  outline: none;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  min-height: 200px;
+
+}
+
+.dark-mode .project-card {
+  background: #1e1e1e;
+  border-color: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+}
+
+.project-card:hover,
+.project-card:focus {
+  transform: scale(1.5);
+  box-shadow:
+    0 16px 40px rgba(0, 0, 0, 0.15),
+    0 0 25px rgba(255, 215, 0, 0.4); /* Box-shadow gold ajouté */
+  border-color: var(--color-primary);
+}
+
+/* === Image du projet === */
+.project-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  overflow: hidden;
+}
+
+.project-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-image,
+.project-card:focus .project-image {
+  transform: scale(1.04);
+}
+
+.image-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.65);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  pointer-events: none;
+}
+
+.project-card:hover .image-overlay,
+.project-card:focus .image-overlay {
+  opacity: 1;
+}
+
+/* === Badge indicateur (flottant en haut à droite) === */
+.project-footer {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  z-index: 2;
+}
+
+.indicator-tag {
+  display: inline-block;
+  padding: 10px 15px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: white;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  width: 50%;
+  transform: translateY(-20px);
+  background: var(--color-primary);
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.project-card:hover .indicator-tag {
+  transform: translateY(-22px);
+  box-shadow:
+    0 5px 15px rgba(0, 0, 0, 0.3),
+    0 0 10px rgba(255, 215, 0, 0.3); /* Effet gold sur l'indicateur */
+}
+
+.indicator-professional {
+  background: #28a745;
+}
+.indicator-personal {
+  background: #007bff;
+}
+.indicator-academic {
+  background: #6f42c1;
+}
+
+/* === Contenu textuel === */
+.card-content {
+  padding: 24px 20px 70px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  z-index: 1;
+  position: relative;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin: 0 0 14px;
+  color: var(--color-primary);
+  line-height: 1.3;
+}
+
+.dark-mode .card-title {
+  color: #f0f0f0;
+}
+
+.card-meta,
+.card-description {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.badges-container {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.badge {
+  background-color: #fceceb; /* Fond léger corail */
+  color: #ef5350;            /* Ton AppColors.primaryCorail */
+  padding: 4px 12px;
+  border-radius: 16px;
+  font-size: 12px;
+  font-weight: 600;
+  border: 1px solid #ffcdd2;
+}
+
+.meta-label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  display: block;
+  margin-bottom: 4px;
+}
+
+.meta-text,
+.description-text {
+  margin: 0;
+  line-height: 1.6;
+  color: #555;
+}
+
+.dark-mode .meta-text,
+.dark-mode .description-text {
+  color: #ccc;
+}
+
+/* === Bouton "Voir les détails" (fixé en bas) === */
+.read-more-btn {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background: var(--gold-color);
+  border: none;
+  color: var(--color-primary);
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 16px 0;
+  cursor: pointer;
+  z-index: 3;
+  transition: all 0.35s ease;
+  border-top: 1px solid rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.dark-mode .read-more-btn {
+  background: #3a3a3a;
+  color: var(--gold-color);
+  border-top-color: rgba(255, 255, 255, 0.1);
+}
+
+.read-more-btn:hover {
+  background: var(--color-primary);
+  border-radius: 50px 50px 0 0;
+  color: white;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.4); /* Effet gold sur le bouton */
+}
+
+.project-card:hover .read-more-btn,
+.project-card:focus .read-more-btn {
+  background: var(--color-primary);
+  color: white;
+}
+
+.read-more-btn:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: -2px;
+}
+
+/* === Call to Action === */
+.cta-wrapper {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+}
+
+.btn {
+  padding: 16px 36px;
+  font-size: 1.1rem;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 50px;
+  background: var(--color-primary);
+  color: white;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  transition: all 0.3s ease;
+  box-shadow:
+    0 8px 24px rgba(46, 139, 87, 0.3),
+    0 0 15px rgba(255, 215, 0, 0.2); /* Box-shadow gold ajouté */
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+  transition: left 0.5s;
+}
+
+.btn:hover::before {
+  left: 100%;
+}
+
+.btn:hover {
+  background: var(--gold-color);
+  color: var(--color-primary);
+  transform: translateY(-4px);
+  box-shadow:
+    0 12px 32px rgba(46, 139, 87, 0.45),
+    0 0 25px rgba(255, 215, 0, 0.5); /* Effet gold renforcé au hover */
+}
+
+.dark-mode .btn {
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.4),
+    0 0 10px rgba(255, 215, 0, 0.1);
+}
+
+.dark-mode .btn:hover {
+  box-shadow:
+    0 12px 32px rgba(0, 0, 0, 0.6),
+    0 0 20px rgba(255, 215, 0, 0.3);
+}
+
+/* === Animations pour les cartes === */
+.project-card {
+  animation: fadeInUp 0.6s ease-out both;
+}
+
+.project-card:nth-child(1) { animation-delay: 0.1s; }
+.project-card:nth-child(2) { animation-delay: 0.2s; }
+.project-card:nth-child(3) { animation-delay: 0.3s; }
+.project-card:nth-child(4) { animation-delay: 0.4s; }
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* === Responsive === */
+@media (max-width: 992px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .projects {
+    padding: 60px 16px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+  }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 32px;
+  }
+
+  .card-content {
+    padding: 20px 20px 60px;
+  }
+
+  .project-footer {
+    top: 12px;
+    right: 12px;
+  }
+
+  .read-more-btn {
+    position: static;
+    opacity: 1;
+    transform: none;
+    margin-top: 16px;
+    padding: 14px 0;
+  }
+
+  .card-title {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 14px 28px;
+    font-size: 1rem;
+  }
+
+  .indicator-tag {
+    padding: 5px 12px;
+    font-size: 0.75rem;
+  }
+}
+
+/* Support reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .project-card,
+  .btn,
+  .read-more-btn,
+  .indicator-tag,
+  .section-title,
+  .section-subtitle {
+    animation: none !important;
+    transition: none !important;
+  }
+
+  .project-card:hover,
+  .project-card:focus {
+    transform: none;
+  }
+
+  .section-title:hover {
+    transform: none;
+  }
+}

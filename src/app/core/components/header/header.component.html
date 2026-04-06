@@ -1,0 +1,69 @@
+<!-- header.component.html -->
+<header class="app-header">
+  <!-- Logo -->
+  <div class="header-section logo-section">
+
+    @if(!isMobile){
+      @if (logo) {
+        <img [src]="logo" [alt]="appName" width="32" height="32" />
+        <b>{{ appName }}</b>
+      } @else {
+        <img [src]="logo" [alt]="appName" width="28" height="28" />
+      }
+    }
+
+  </div>
+
+  <!-- Navigation (inclinée, pleine hauteur) -->
+  <nav class="header-section nav-parallelogram">
+    @for (item of items; track item.index) {
+      <button
+        class="nav-button"
+        [class.active]="item.isActive"
+        (click)="navigateTo(item.index)"
+        [attr.aria-label]="item.label"
+      >
+        <i class="fas fa-{{ item.icon }}" aria-hidden="true"></i>
+        @if (!isMobile) {
+          <span>{{ item.label|translate }}</span>
+        }
+        <span class="indicator"></span>
+      </button>
+    }
+  </nav>
+
+  <!-- Contrôles (thème + langue) -->
+  <div class="header-section controls-section">
+    @if(isMobile){
+      <img [src]="logo" [alt]="appName" width="28" height="28" />
+    }
+    <button class="control-button" (click)="toggleTheme()" aria-label="Toggle theme">
+      <i class="fas" [class]="isDarkTheme ? 'fa-sun' : 'fa-moon'"></i>
+    </button>
+    <div class="language-switch-container">
+      <i
+        class="flag-icon"
+        [class.active]="currentLang === 'en'"
+        [class]="'flag-icon-us'"
+        aria-hidden="true"
+      ></i>
+
+      <label class="switch">
+        <input
+          type="checkbox"
+          [checked]="currentLang === 'fr'"
+          (change)="onLanguageChange()"
+          [attr.aria-label]="(currentLang === 'fr' ? 'NAV.SWITCH_TO_EN' : 'NAV.SWITCH_TO_FR') | translate"
+        >
+        <span class="slider round"></span>
+      </label>
+
+      <i
+        class="flag-icon"
+        [class.active]="currentLang === 'fr'"
+        [class]="'flag-icon-fr'"
+        aria-hidden="true"
+      ></i>
+    </div>
+  </div>
+</header>

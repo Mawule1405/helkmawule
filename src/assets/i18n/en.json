@@ -1,0 +1,256 @@
+{
+  "NAV": {
+    "HOME": "Home",
+    "ABOUT": "About",
+    "PROJECTS": "Projets",
+    "HISTORY": "History",
+    "SKILLS": "Skills",
+    "CONTACT": "Contacts",
+    "SWITCH_TO_EN": "English",
+    "SWITCH_TO_FR": "French"
+  },
+  "IDENTITY": {
+    "PROFESSION": "Software Design Engineer",
+    "GREETING": "Hello, I am",
+    "NAME": "Komlan Mawule HELOU",
+    "PROFILE": "Full-stack Developer, Software Architect, and Specializing in Artificial Intelligence (AI)",
+    "DESCRIPTION": "Backed by a dual expertise in Computer Engineering and Mathematics Education, I design and deploy robust and scalable computer systems. Currently undergoing intensive specialization in Artificial Intelligence, I am already applying my strong mathematical foundation to develop new software solutions integrating the fundamentals of AI, from analysis to implementation.",
+    "ADDRESS": "Libreville, Gabon",
+    "JOB_FOCUS": "Digitalization and Business Process Automation",
+    "AVAILABILITY": "Open to New Contracts",
+    "SHOW_PROJECTS": "View Projects",
+    "SHOW_CONTACT": "Contact Me"
+  },
+
+  "PROJECTS": {
+    "title": "My IT Projects",
+    "subtitle": "Discover a selection of my technical achievements, combining innovation and expertise acquired during my journey at IAI Headquarters",
+    "showAll": "Discover all my projects",
+    "showPart": "View fewer projects",
+    "DATA":
+      {
+        "projet1": {
+          "name": "ArchiFile",
+          "description": "Design and implementation of an intelligent electronic archiving system using hybrid search algorithms and a conversational interface.",
+          "objective": "Revitalize documentary archives through digital exploitation",
+          "indicator": "Professional"
+        },
+        "projet2": {
+          "name": "SGLP",
+          "description": "Creation of a functional prototype for a web application managing public freedoms",
+          "objective": "Digitalization of political parties and associations management processes",
+          "indicator": "Professional",
+          "technologies" : "Angular & Spring boot"
+        },
+        "projet3": {
+          "name": "SCHOOL-GEST",
+          "description": "Creation of a functional prototype for a web application managing financial operations for multiple schools",
+          "objective": "Digitalization of school financial management processes",
+          "indicator": "Professional",
+          "technologies" : "Angular & Spring boot"
+        },
+        "projet4": {
+          "name": "TAM",
+          "description": "Mass payment processing application",
+          "objective": "Digitalization of payment processes",
+          "indicator": "Professional",
+          "technologies" : "Angular & Spring boot"
+        },
+        "projet5": {
+          "name": "AccountManager",
+          "description": "Transaction management application for data acquisition and processing through an ETL system in a business intelligence course",
+          "objective": "Implement an ETL process for business intelligence",
+          "indicator": "Academic",
+          "technologies" : "Angular & Spring boot"
+        },
+        "projet6": {
+          "name": "IAIPromo",
+          "description": "Application connecting alumni and new students of the African Institute of Informatics",
+          "objective": "Create an exchange network between students and alumni",
+          "indicator": "Academic",
+          "technologies" : "Angular & Spring boot & Kotlin"
+        },
+        "projet7": {
+          "name": "Localization",
+          "description": "API using the location of Gabon's electrical poles to determine the distance from a person and provide the shortest path to these positions",
+          "objective": "Develop a geolocation system based on electrical infrastructure",
+          "indicator": "Academic",
+          "technologies" : "Python(FastApi) & PostGis"
+        },
+        "projet8": {
+          "name": "Ordi Vision",
+          "description": "Facial recognition application to identify a person within a camera's field of view",
+          "objective": "Implement a real-time facial recognition system",
+          "indicator": "Academic",
+          "technologies" : "Python & Yolov8"
+        },
+        "projet9": {
+          "name": "Portfolio",
+          "description": "Development of the first version of my portfolio using basic web technologies",
+          "objective": "Build an online portfolio",
+          "indicator": "Personal",
+          "technologies" : "HTML & CSS & Javascript"
+        },
+        "projet10": {
+          "name": "Portfolio V2",
+          "description": "Portfolio reconstruction with Angular and implementation of a bilingual system (English, French)",
+          "objective": "Enhance portfolio with modern technologies and multilingual interface",
+          "indicator": "Personal",
+          "technologies" : "Angular"
+        },
+        "projet11": {
+          "name": "ChatFile",
+          "description": "Development of a web application based on a RAG system to simulate document exploitation",
+          "objective": "Learn and implement a RAG system",
+          "indicator": "Personal",
+          "technologies" : "Angular & Spring boot (Spring AI)"
+        },
+        "projet12": {
+          "name": "PDFSplitter",
+          "description": "Windows application allowing to split PDF documents at desired positions",
+          "objective": "Precisely split PDF documents",
+          "indicator": "Personal",
+          "technologies" : "Python (CustomTkinter)"
+        },
+        "projet_nebi": {
+          "name": "NEBI (Next Billing)",
+          "description": "Cross-platform billing application enabling the management of quotes, invoices, and business profiles with PDF document generation.",
+          "objective": "To automate and professionalize invoicing for entrepreneurs and SMEs.",
+          "indicator": "Personnel",
+          "technologies": "Flutter & SQLite"
+        },
+        "projet_clockin": {
+          "name": "CLOCKIN (Time Tracking & Attendance)",
+          "description": "Multi-platform attendance and secure clock-in management application, integrating facial recognition, Beacon tag scanning, and geolocation for real-time employee tracking.",
+          "objective": "To automate work-time tracking and secure corporate access through a multi-factor approach (Biometrics, Proximity, Network).",
+          "indicator": "Personnel",
+          "technologies": "Flutter & Supabase"
+        }
+      }
+
+  },
+  "FLIP": {
+    "title": "My Journey",
+    "subtitle": "The evolution of an engineer: from fundamental mathematics to applied artificial intelligence",
+    "action": "Detail",
+    "return": "Return",
+    "DATA": {
+      "flip1": {
+        "title": "Baccalaureate – Science Series (Series D)",
+        "period": "2014",
+        "fullDescription": "Obtained my Baccalaureate Series D at Lycée Aného Ville in Togo. This scientific track provided me with a solid foundation in mathematics, physics, and natural sciences, forming the basis of my current analytical rigor."
+      },
+
+      "flip2": {
+        "title": "Bachelor’s Degree in Fundamental Mathematics",
+        "period": "2014 - 2018",
+        "fullDescription": "Bachelor’s degree obtained at the University of Lomé. Throughout this academic program, I developed strong skills in abstraction, logical reasoning, and solving complex problems. These abilities served as a bridge toward computer science, especially algorithmics and modeling."
+      },
+
+      "flip3": {
+        "title": "Mathematics Teacher",
+        "period": "2018 - 2022",
+        "fullDescription": "Math teacher at Complexe Scolaire Le Savoir in Lomé. For four years, I taught mathematics to secondary school students, designed adapted teaching methods, and prepared learners for national exams. This experience strengthened my communication and pedagogical skills."
+      },
+
+      "flip4": {
+        "title": "Discovery Internship in Software Development",
+        "period": "2024",
+        "fullDescription": "First immersion in applied computer science at TECHNO MEGA PARTNERS, involving practical work in web development and programming. This experience confirmed my decision to fully transition into software engineering and artificial intelligence."
+      },
+
+      "flip5": {
+        "title": "Academic & Professional Internships",
+        "period": "2024 - 2025",
+        "fullDescription": "Completed two internships at Techno Méga Partners in Libreville: a development internship (CEVIMEC & TAM) and an engineering internship in AI (ARCHIFILE). I contributed to the design of business applications, full-stack development (Angular, Spring Boot, FastAPI), and the creation of an intelligent archiving solution integrating an AI chatbot, automated indexing, and hybrid search."
+      },
+
+      "flip6": {
+        "title": "Software Engineering Degree",
+        "period": "2022 - 2025",
+        "fullDescription": "Engineering training at the African Institute of Computer Science (IAI) in Libreville. Specialized in application design, software engineering, data science, and artificial intelligence. My projects include: RAG chatbot, microservices systems, computer vision solutions, decision-making ETL, and Angular/Spring Boot applications."
+      }
+    }
+  },
+  "SKILLS": {
+    "title": "My Technical Skills",
+    "subtitle": "Skills developed through my training at the African Institute of Informatics and through my personal and professional projects",
+    "showMore": "Show more",
+    "showLess": "Show less",
+    "showAllBtn": "Explore all my skills",
+    "showFewerBtn": "Show fewer skills",
+    "DATA": {
+      "skill1": {
+        "name": "Artificial Intelligence",
+        "description": "Generative AI (prompt engineering, AI agents), NLP and MCP for intelligent chatbots and conversational search systems, computer vision including facial recognition and object detection using YOLO and OpenCV."
+      },
+
+      "skill2": {
+        "name": "Full-Stack Development",
+        "description": "Design and development of modern web applications using Angular, Spring Boot, and FastAPI. Experience with REST APIs, JWT security, microservice architectures, and the development of scalable business applications."
+      },
+
+      "skill3": {
+        "name": "Data Science & Analytics",
+        "description": "Data manipulation and analysis with Pandas, NumPy, and R; data visualization; building ETL pipelines; and the use of analytical tools such as Power BI and Microsoft Excel."
+      },
+
+      "skill4": {
+        "name": "Databases",
+        "description": "Modeling and managing SQL databases: PostgreSQL, PostGIS for geospatial processing, MySQL. Skilled in designing relational schemas and optimizing queries."
+      },
+
+      "skill5": {
+        "name": "DevOps & Productivity Tools",
+        "description": "Version control with Git, containerization with Docker, Agile project workflows."
+      },
+
+      "skill6": {
+        "name": "Software Engineering & Architecture",
+        "description": "Software design methodologies, AI pipeline structuring, RAG (Retrieval-Augmented Generation) integration, microservice design, and development of scalable and maintainable software solutions."
+      },
+
+      "skill7": {
+        "name": "Teaching & Technical Communication",
+        "description": "3+ years of experience teaching mathematics and providing training in office productivity tools (Word, Excel, PowerPoint). Ability to explain technical concepts clearly and support learners effectively."
+      },
+
+      "skill8": {
+        "name": "Technical Writing & Professional Presentation",
+        "description": "Academic and technical writing using LaTeX, creation of professional documents with Beamer, and producing clear, well-structured documentation for projects and deliverables."
+      }
+    }
+  },
+  "CONTACT": {
+    "title": "Get in Touch",
+    "subtitle": "Feel free to contact me to discuss your projects or collaboration opportunities.",
+    "localization": "Location",
+    "subLocalization": "Central Africa",
+    "email": "Email",
+    "subEmail": "Response within 24 hours",
+    "telephone": "Phone",
+    "subTelephone": "Available on WhatsApp",
+    "followMe": "Follow me",
+    "message": {
+      "title": "Send a Message",
+      "name": "Full Name",
+      "nameRequire": "Name is required",
+      "emailRequire": "A valid email is required",
+      "subject": "Subject",
+      "placeholderSubject": "Subject of your message",
+      "message": "Message",
+      "messageRequire": "Message is required",
+      "placeholderMessage": "Describe your project or your request...",
+      "send": "Send Message",
+      "sending": "Sending...",
+      "responseError": "An error occurred while sending your message. Please try again.",
+      "responseSuccess": "Message sent successfully! I will get back to you as soon as possible."
+    },
+    "finally": "All rights reserved"
+  }
+
+
+
+
+
+}

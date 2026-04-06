@@ -1,0 +1,33 @@
+/* src/styles/themes/dark-theme.css */
+html.dark-mode {
+  /* Dark Mode Colors */
+  --color-primary: #3cb371;                    /* Brighter green for contrast */
+  --color-primary-light: #2e8b57;
+  --color-primary-dark: #1a7c43;
+
+  --color-background: #1a1a1a;
+
+  --color-text: #f8f9fa;
+  --color-text-nav: #f8f9fa;
+  --color-text-light: #f8f9fa;
+  --color-text-green: #1a7c43;
+
+  --color-button-bg: #2d2d2d;
+  --color-button-hover: #404040;
+  --color-border: #495057;
+
+  /* Keep other variables consistent */
+  --font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-weight-bold: 600;
+
+  --radius-md: 8px;
+  --padding-md: 0.75rem;
+  --gap-md: 1rem;
+  --gap-lg: 2rem;
+
+  --transition-fast: 0.2s ease-in-out;
+  --transition-normal: 0.3s ease;
+}

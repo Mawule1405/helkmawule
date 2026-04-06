@@ -1,0 +1,1167 @@
+
+
+/* Styles de base et du wrapper de section */
+.home-about {
+  padding: 20px 10px;
+  position: relative;
+}
+
+.dark-mode .home-about {
+  background: #1a1a1a;
+  color: #f8f9fa;
+}
+
+/* Ligne de timeline (désactivée pour le scroll) */
+.home-about::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 85%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--color-primary), transparent);
+  opacity: 0.1;
+  z-index: 1;
+  display: none;
+}
+
+.container {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 20px;
+  text-align: center;
+  position: relative;
+  z-index: 2;
+}
+
+/* === Titre de section animé (styles précédents conservés) === */
+.section-header {
+  text-align: center;
+  margin-bottom: 60px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  cursor: pointer;
+}
+
+.section-title {
+  font-size: 2.6rem;
+  font-weight: 800;
+  margin-bottom: 16px;
+  color: var(--color-primary);
+  position: relative;
+  display: inline-block;
+  transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  padding: 0 20px;
+}
+
+/* Animation au survol du titre */
+.section-title:hover {
+  color: var(--gold-color);
+  transform: translateY(-5px) scale(1.05);
+  text-shadow:
+    0 0 20px rgba(255, 215, 0, 0.4),
+    0 0 40px rgba(255, 215, 0, 0.2);
+}
+
+.section-title::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, transparent 0%, rgba(255, 215, 0, 0.1) 50%, transparent 100%);
+  border-radius: 15px;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: all 0.4s ease;
+  z-index: -1;
+}
+
+.section-title:hover::before {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.section-title .title-underline {
+  display: block;
+  width: 70px;
+  height: 4px;
+  background: var(--color-primary);
+  margin: 12px auto;
+  border-radius: 2px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.section-title .title-underline::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, var(--gold-color), transparent);
+  transition: left 0.6s ease;
+}
+
+.section-title:hover .title-underline {
+  background: var(--gold-color);
+  width: 100px;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+}
+
+.section-title:hover .title-underline::after {
+  left: 100%;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  font-weight: 500;
+  color: #6c757d;
+  line-height: 1.6;
+  margin-top: 12px;
+  transition: all 0.3s ease;
+}
+
+.section-header:hover .section-subtitle {
+  color: var(--color-primary);
+  transform: translateY(3px);
+}
+
+.dark-mode .section-subtitle {
+  color: #bbb;
+}
+
+.dark-mode .section-header:hover .section-subtitle {
+  color: var(--gold-color);
+}
+
+
+/* Styles d'animation du titre (omitted for brevity, assume they are handled by the section title style rules) */
+
+/* === Scroll Controls (Adapté à la nouvelle structure) === */
+.scroll-controls {
+  display: flex;
+  align-items: center; /* Aligne les boutons avec le wrapper de défilement */
+  gap: 20px; /* Espace entre les boutons et le wrapper */
+  margin-bottom: 30px;
+  padding: 0 20px;
+}
+
+/* Règle pour que le wrapper de défilement prenne l'espace restant */
+.cards-scroll-wrapper {
+  flex-grow: 1;
+  overflow-x: auto; /* Active le défilement horizontal */
+  scroll-behavior: smooth; /* Défilement fluide avec les boutons */
+  -webkit-overflow-scrolling: touch; /* Amélioration du défilement tactile */
+  padding: 20px 0; /* Espace pour la barre de défilement */
+  margin: 0; /* Suppression des marges pour utiliser l'espace complet */
+  scrollbar-width: none;
+}
+
+/* Style de la barre de défilement (cachée ou stylée) */
+.cards-scroll-wrapper::-webkit-scrollbar {
+  height: 8px;
+}
+
+.cards-scroll-wrapper::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 10px;
+}
+
+.cards-scroll-wrapper::-webkit-scrollbar-track {
+  background: rgba(46, 139, 87, 0.1);
+}
+
+/* Boutons Précédent/Suivant */
+.scroll-btn {
+  width: 50px;
+  height: 50px;
+  flex-shrink: 0; /* Empêche le rétrécissement */
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: 1.2rem;
+  box-shadow: 0 4px 15px rgba(46, 139, 87, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.scroll-btn:hover:not(:disabled) {
+  background: var(--gold-color);
+  color: var(--color-primary);
+  transform: scale(1.1);
+}
+
+.scroll-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* === Grille de cartes === */
+.cards-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 30px;
+  justify-content: flex-start;
+  width: max-content;
+  padding: 10px 2px;
+}
+
+/* === Carte 3D === */
+.flip-card {
+  min-width: 350px;
+  height: 450px;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  position: relative;
+  z-index: 2;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s ease-in-out;
+
+
+}
+
+.flip-card.flipped .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-inner:hover {
+  transform: scale(1.03);
+  box-shadow: 0 3px 10px rgba(255, 215, 0, 0.5), 0 0 5px rgba(255, 215, 0, 0.3);
+}
+
+/* === Face avant et arrière === */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1;
+  overflow: hidden;
+
+}
+
+.flip-card-front {
+  background: linear-gradient(145deg, #ffffff, #f8f9fa);
+  color: #212529;
+  z-index: 2;
+  border: 2px solid rgba(46, 139, 87, 0.1);
+  /* IMPORTANT FIX:
+    Lorsque la carte est retournée, on cache la face avant
+    pour s'assurer qu'elle n'est pas visible à travers la face arrière (z-index bug dans certains navigateurs)
+  */
+  opacity: 1;
+  transition: opacity 0.35s 0.35s ease-out; /* Délai pour l'opacité */
+}
+
+.flip-card.flipped .flip-card-front {
+  opacity: 0;
+  pointer-events: none; /* Désactive les interactions sur la face cachée */
+}
+
+.dark-mode .flip-card-front {
+  background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+  border-color: rgba(46, 139, 87, 0.2);
+}
+
+/* Icône de timeline améliorée */
+.timeline-icon {
+  width: 70px;
+  height: 70px;
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  border: 3px solid var(--color-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.6rem;
+  margin-bottom: 20px;
+  box-shadow: 0 6px 20px rgba(46, 139, 87, 0.3);
+  position: relative;
+}
+
+.flip-card-front h3 {
+  font-size: 1.3rem;
+  margin: 0 0 12px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.timeline-period {
+  font-weight: 700;
+  color: var(--gold-color);
+  font-size: 1.1rem;
+  margin: 0 0 25px;
+  padding: 8px 16px;
+  background: rgba(255, 215, 0, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+}
+
+/* === Face arrière === */
+.flip-card-back {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+  color: white;
+  transform: rotateY(180deg);
+  z-index: 1;
+  padding: 0;
+  box-shadow: 0 8px 25px rgba(46, 139, 87, 0.3);
+  opacity: 0;
+  transition: opacity 0.35s 0.35s ease-out;
+}
+
+.flip-card.flipped .flip-card-back {
+  opacity: 1;
+  pointer-events: auto; /* Active les interactions sur la face visible */
+}
+
+/* Header de la face arrière */
+.flip-card-back::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 70px;
+  background: linear-gradient(135deg, var(--gold-color), #ffed4e);
+
+}
+
+.flip-card-back h3 {
+  position: absolute;
+  top: 20px;
+  left: 0;
+  right: 0;
+  padding: 0 25px;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--color-primary);
+  text-align: center;
+  z-index: 2;
+  margin: 0;
+}
+
+.flip-card-back .description {
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 25px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.flip-card-back p {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 0 0 20px;
+  opacity: 0.95;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* === Boutons de flip === */
+.btn-flip {
+  padding: 12px 24px;
+  border: none;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(46, 139, 87, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.95rem;
+  border-radius: 50px;
+}
+
+
+
+.btn-front:hover {
+  background: var(--color-primary);
+  color: white;
+  transform: translateY(-2px);
+}
+
+.flip-card-back .back-btn {
+  background: rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(10px);
+  margin: 0 auto;
+}
+
+.flip-card-back .back-btn:hover {
+  background: rgba(255, 255, 255, 0.25);
+  color: var(--gold-color);
+  transform: translateY(-2px);
+}
+
+/* ============ RESPONSIVE ============ */
+@media (max-width: 768px) {
+  .flip-card {
+    min-width: 320px;
+  }
+
+  .scroll-controls {
+    padding: 0 10px; /* Réduit le padding sur mobile */
+  }
+}
+
+@media (max-width: 480px) {
+  .scroll-controls {
+    gap: 10px;
+  }
+  .scroll-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
+/* ============ RESPONSIVE ============ */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+  .flip-card {
+    min-width: 300px;
+    height: 420px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 25px;
+  }
+
+  .timeline-icon {
+    width: 65px;
+    height: 65px;
+    font-size: 1.4rem;
+    margin-bottom: 18px;
+  }
+
+  .flip-card-front h3 {
+    font-size: 1.2rem;
+    margin: 0 0 10px;
+  }
+
+  .timeline-period {
+    font-size: 1rem;
+    margin: 0 0 20px;
+    padding: 7px 14px;
+  }
+
+  .btn-flip {
+    padding: 10px 20px;
+    font-size: 0.9rem;
+  }
+}
+
+/* Tablettes petites et grands mobiles */
+@media (max-width: 768px) {
+  .home-about {
+    padding: 15px 5px;
+  }
+
+  .container {
+    padding: 0 15px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 2.2rem;
+    padding: 0 15px;
+  }
+
+  .section-subtitle {
+    font-size: 1rem;
+  }
+
+  .scroll-controls {
+    padding: 0 10px;
+    gap: 15px;
+    margin-bottom: 25px;
+  }
+
+  .flip-card {
+    min-width: 280px;
+    height: 400px;
+  }
+
+  .cards-grid {
+    gap: 20px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 20px;
+  }
+
+  .timeline-icon {
+    width: 60px;
+    height: 60px;
+    font-size: 1.3rem;
+    margin-bottom: 15px;
+  }
+
+  .flip-card-front h3 {
+    font-size: 1.1rem;
+  }
+
+  .timeline-period {
+    font-size: 0.95rem;
+    margin: 0 0 18px;
+    padding: 6px 12px;
+  }
+
+  .flip-card-back h3 {
+    font-size: 1.2rem;
+    top: 15px;
+  }
+
+  .flip-card-back::before {
+    height: 60px;
+  }
+
+  .flip-card-back .description {
+    top: 60px;
+    padding: 20px;
+  }
+
+  .flip-card-back p {
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .btn-flip {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+
+  .scroll-btn {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+  }
+}
+
+/* Mobiles moyens */
+@media (max-width: 600px) {
+  .flip-card {
+    min-width: 260px;
+    height: 380px;
+  }
+
+  .cards-grid {
+    gap: 15px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 18px;
+  }
+
+  .timeline-icon {
+    width: 55px;
+    height: 55px;
+    font-size: 1.2rem;
+    margin-bottom: 12px;
+  }
+
+  .flip-card-front h3 {
+    font-size: 1.05rem;
+    margin: 0 0 8px;
+  }
+
+  .timeline-period {
+    font-size: 0.9rem;
+    margin: 0 0 15px;
+    padding: 5px 10px;
+  }
+
+  .flip-card-back h3 {
+    font-size: 1.1rem;
+    top: 12px;
+  }
+
+  .flip-card-back .description {
+    padding: 18px;
+  }
+
+  .flip-card-back p {
+    font-size: 0.85rem;
+    line-height: 1.4;
+  }
+
+  .btn-flip {
+    padding: 8px 16px;
+    font-size: 0.8rem;
+    gap: 6px;
+  }
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+  .home-about {
+    padding: 10px 0;
+  }
+
+  .container {
+    padding: 0 10px;
+  }
+
+  .section-header {
+    margin-bottom: 30px;
+  }
+
+  .section-title {
+    font-size: 1.8rem;
+    padding: 0 10px;
+  }
+
+  .section-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .scroll-controls {
+    padding: 0 5px;
+    gap: 10px;
+    margin-bottom: 20px;
+  }
+
+  .flip-card {
+    min-width: 240px;
+    height: 360px;
+  }
+
+  .cards-grid {
+    gap: 12px;
+    padding: 5px 1px;
+  }
+
+  .cards-scroll-wrapper {
+    padding: 15px 0;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 15px;
+  }
+
+  .timeline-icon {
+    width: 50px;
+    height: 50px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .flip-card-front h3 {
+    font-size: 1rem;
+    margin: 0 0 6px;
+  }
+
+  .timeline-period {
+    font-size: 0.85rem;
+    margin: 0 0 12px;
+    padding: 4px 8px;
+  }
+
+  .flip-card-back h3 {
+    font-size: 1rem;
+    top: 10px;
+    padding: 0 15px;
+  }
+
+  .flip-card-back::before {
+    height: 50px;
+  }
+
+  .flip-card-back .description {
+    top: 50px;
+    padding: 15px;
+  }
+
+  .flip-card-back p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    margin: 0 0 15px;
+  }
+
+  .btn-flip {
+    padding: 7px 14px;
+    font-size: 0.75rem;
+    gap: 4px;
+  }
+
+  .scroll-btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+
+  /* Cache la barre de défilement sur mobile pour plus de place */
+  .cards-scroll-wrapper::-webkit-scrollbar {
+    height: 4px;
+  }
+}
+
+/* Très petits mobiles */
+@media (max-width: 360px) {
+  .flip-card {
+    min-width: 220px;
+    height: 340px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 12px;
+  }
+
+  .timeline-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1rem;
+    margin-bottom: 8px;
+  }
+
+  .flip-card-front h3 {
+    font-size: 0.95rem;
+  }
+
+  .timeline-period {
+    font-size: 0.8rem;
+    padding: 3px 6px;
+  }
+
+  .flip-card-back h3 {
+    font-size: 0.95rem;
+  }
+
+  .flip-card-back .description {
+    padding: 12px;
+  }
+
+  .flip-card-back p {
+    font-size: 0.75rem;
+  }
+
+  .btn-flip {
+    padding: 6px 12px;
+    font-size: 0.7rem;
+  }
+}
+
+/* Support pour l'orientation paysage sur mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .flip-card {
+    height: 320px;
+    min-width: 250px;
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 15px;
+  }
+
+  .timeline-icon {
+    width: 45px;
+    height: 45px;
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+  }
+
+  .flip-card-front h3 {
+    font-size: 1rem;
+    margin: 0 0 5px;
+  }
+
+  .timeline-period {
+    font-size: 0.85rem;
+    margin: 0 0 10px;
+  }
+
+  .flip-card-back .description {
+    padding: 15px;
+  }
+}
+
+/* Amélioration de la visibilité sur les petits écrans */
+@media (max-width: 480px) {
+  .flip-card-inner {
+    box-shadow: 0 4px 12px rgba(46, 139, 87, 0.2);
+  }
+
+  .flip-card-inner:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.3);
+  }
+
+  /* Améliore la lisibilité du texte */
+  .flip-card-front {
+    border-width: 1px;
+  }
+
+  .timeline-period {
+    border-width: 1px;
+  }
+}
+/* === Scroll Controls (Adapté à la nouvelle structure) === */
+.scroll-controls {
+  display: flex;
+  align-items: center;
+  gap: 15px; /* Réduit de 20px à 15px */
+  margin-bottom: 25px; /* Réduit de 30px à 25px */
+  padding: 0 15px; /* Réduit de 20px à 15px */
+}
+
+/* Règle pour que le wrapper de défilement prenne l'espace restant */
+.cards-scroll-wrapper {
+  flex-grow: 1;
+  overflow-x: auto;
+  scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  padding: 15px 0; /* Réduit de 20px à 15px */
+  margin: 0;
+  scrollbar-width: none;
+}
+
+/* Boutons Précédent/Suivant - TAILLE RÉDUITE */
+.scroll-btn {
+  width: 45px; /* Réduit de 50px à 45px */
+  height: 45px; /* Réduit de 50px à 45px */
+  flex-shrink: 0;
+  background: var(--color-primary);
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 50%;
+  transition: all 0.3s ease;
+  font-size: 1.1rem; /* Réduit de 1.2rem à 1.1rem */
+  box-shadow: 0 3px 12px rgba(46, 139, 87, 0.3); /* Ombre plus légère */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.scroll-btn:hover:not(:disabled) {
+  background: var(--gold-color);
+  color: var(--color-primary);
+  transform: scale(1.08); /* Réduit l'effet de scale */
+}
+
+.scroll-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+/* === Grille de cartes === */
+.cards-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 25px; /* Réduit de 30px à 25px */
+  justify-content: flex-start;
+  width: max-content;
+  padding: 8px 2px; /* Réduit de 10px à 8px */
+}
+
+/* === Carte 3D - Padding réduit === */
+.flip-card-front,
+.flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  padding: 28px; /* Réduit de 32px à 28px */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1;
+  overflow: hidden;
+}
+
+/* === Boutons de flip - Taille réduite === */
+.btn-flip {
+  padding: 10px 20px; /* Réduit de 12px 24px à 10px 20px */
+  border: none;
+  background: var(--color-primary);
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 3px 10px rgba(46, 139, 87, 0.3); /* Ombre plus légère */
+  display: flex;
+  align-items: center;
+  gap: 6px; /* Réduit de 8px à 6px */
+  font-size: 0.9rem; /* Réduit de 0.95rem à 0.9rem */
+  border-radius: 50px;
+}
+
+/* === Face arrière - Padding réduit === */
+.flip-card-back .description {
+  position: absolute;
+  top: 70px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 22px; /* Réduit de 25px à 22px */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+/* ============ RESPONSIVE - Mises à jour cohérentes ============ */
+
+/* Tablettes */
+@media (max-width: 1024px) {
+  .scroll-controls {
+    gap: 12px; /* Réduit */
+    padding: 0 12px; /* Réduit */
+  }
+
+  .scroll-btn {
+    width: 42px; /* Réduit */
+    height: 42px; /* Réduit */
+    font-size: 1rem; /* Réduit */
+  }
+
+  .cards-scroll-wrapper {
+    padding: 12px 0; /* Réduit */
+  }
+
+  .cards-grid {
+    gap: 22px; /* Réduit */
+  }
+
+  .btn-flip {
+    padding: 9px 18px; /* Réduit */
+    font-size: 0.85rem; /* Réduit */
+  }
+}
+
+/* Tablettes petites et grands mobiles */
+@media (max-width: 768px) {
+  .scroll-controls {
+    gap: 10px; /* Réduit */
+    padding: 0 8px; /* Réduit */
+    margin-bottom: 20px; /* Réduit */
+  }
+
+  .scroll-btn {
+    width: 38px; /* Réduit */
+    height: 38px; /* Réduit */
+    font-size: 0.9rem; /* Réduit */
+  }
+
+  .cards-scroll-wrapper {
+    padding: 10px 0; /* Réduit */
+  }
+
+  .cards-grid {
+    gap: 18px; /* Réduit */
+    padding: 6px 1px; /* Réduit */
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 18px; /* Réduit de 20px à 18px */
+  }
+
+  .btn-flip {
+    padding: 8px 16px; /* Réduit */
+    font-size: 0.8rem; /* Réduit */
+    gap: 5px; /* Réduit */
+  }
+
+  .flip-card-back .description {
+    padding: 18px; /* Réduit de 20px à 18px */
+  }
+}
+
+/* Mobiles moyens */
+@media (max-width: 600px) {
+  .scroll-controls {
+    gap: 8px; /* Réduit */
+    padding: 0 6px; /* Réduit */
+  }
+
+  .scroll-btn {
+    width: 36px; /* Réduit */
+    height: 36px; /* Réduit */
+    font-size: 0.85rem; /* Réduit */
+  }
+
+  .cards-scroll-wrapper {
+    padding: 8px 0; /* Réduit */
+  }
+
+  .cards-grid {
+    gap: 15px; /* Réduit */
+    padding: 5px 1px; /* Réduit */
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 16px; /* Réduit de 18px à 16px */
+  }
+
+  .btn-flip {
+    padding: 7px 14px; /* Réduit */
+    font-size: 0.75rem; /* Réduit */
+    gap: 4px; /* Réduit */
+  }
+
+  .flip-card-back .description {
+    padding: 16px; /* Réduit de 18px à 16px */
+  }
+}
+
+/* Petits mobiles */
+@media (max-width: 480px) {
+  .scroll-controls {
+    gap: 6px; /* Réduit */
+    padding: 0 4px; /* Réduit */
+    margin-bottom: 15px; /* Réduit */
+  }
+
+  .scroll-btn {
+    width: 34px; /* Réduit de 40px à 34px */
+    height: 34px; /* Réduit de 40px à 34px */
+    font-size: 0.8rem; /* Réduit de 1rem à 0.8rem */
+  }
+
+  .cards-scroll-wrapper {
+    padding: 6px 0; /* Réduit de 15px à 6px */
+  }
+
+  .cards-grid {
+    gap: 12px; /* Réduit */
+    padding: 4px 1px; /* Réduit */
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 14px; /* Réduit de 15px à 14px */
+  }
+
+  .btn-flip {
+    padding: 6px 12px; /* Réduit de 7px 14px à 6px 12px */
+    font-size: 0.7rem; /* Réduit de 0.75rem à 0.7rem */
+    gap: 3px; /* Réduit */
+  }
+
+  .flip-card-back .description {
+    padding: 14px; /* Réduit de 15px à 14px */
+  }
+}
+
+/* Très petits mobiles */
+@media (max-width: 360px) {
+  .scroll-controls {
+    gap: 5px; /* Réduit */
+    padding: 0 3px; /* Réduit */
+  }
+
+  .scroll-btn {
+    width: 32px; /* Réduit */
+    height: 32px; /* Réduit */
+    font-size: 0.75rem; /* Réduit */
+  }
+
+  .cards-scroll-wrapper {
+    padding: 5px 0; /* Réduit */
+  }
+
+  .cards-grid {
+    gap: 10px; /* Réduit */
+    padding: 3px 1px; /* Réduit */
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 12px; /* Maintenu */
+  }
+
+  .btn-flip {
+    padding: 5px 10px; /* Réduit de 6px 12px à 5px 10px */
+    font-size: 0.65rem; /* Réduit de 0.7rem à 0.65rem */
+    gap: 2px; /* Réduit */
+  }
+
+  .flip-card-back .description {
+    padding: 12px; /* Maintenu */
+  }
+}
+
+/* Support pour l'orientation paysage sur mobile */
+@media (max-width: 768px) and (orientation: landscape) {
+  .scroll-controls {
+    gap: 8px; /* Réduit */
+    padding: 0 6px; /* Réduit */
+  }
+
+  .scroll-btn {
+    width: 16px; /* Réduit */
+    height: 16px; /* Réduit */
+    font-size: 0.85rem; /* Réduit */
+  }
+
+  .cards-scroll-wrapper {
+    padding: 2px 0; /* Réduit */
+  }
+
+  .flip-card-front,
+  .flip-card-back {
+    padding: 6px; /* Réduit de 15px à 14px */
+  }
+
+  .btn-flip {
+    padding: 7px 14px; /* Réduit */
+    font-size: 0.75rem; /* Réduit */
+  }
+
+  .flip-card-back .description {
+    padding: 14px; /* Réduit de 15px à 14px */
+  }
+}
